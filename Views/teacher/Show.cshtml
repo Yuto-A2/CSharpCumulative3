@@ -1,0 +1,31 @@
+﻿
+
+@model ScoolProject.Models.teacher
+
+@{
+    ViewBag.Title = "Show";
+}
+<a style="color:red" href="/teacher/DeleteConfirm/@Model.TeacherId">Delete</a>
+
+<h2>Show teachers</h2>
+<table>
+    <tr>
+        <th>Teacher Id</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Employee number</th>
+        <th>hired date</th>
+        <th>Salary</th>
+        <th>Class</th>
+    </tr>
+    <tr>
+        <td> @Model.TeacherId</td>
+        <td> @Model.TeacherfName</td>
+        <td>@Model.TeacherlName</td>
+        <td> @Model.EmployeeNum</td>
+        <td>@Model.HireDate</td>
+        <td>$@Model.Salary</td>
+        <td>@Model.className</td>
+    </tr>
+</table>
+

@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New Teacher</h2>
+
+<form method="POST" action="/Teacher/Create" name="teacherForm">
+    <div>
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName">
+    </div>
+    <div>
+        <label for="lastName">Last name</label>
+        <input type="text" name="lastName" id="lastName" />
+    </div>
+    <div>
+        <label for="className">Class name</label>
+        <input type="text" name="className" id="className" />
+    </div>
+    <div>
+        <input type="submit" value="Add teacher" />
+    </div>
+</form>
+
+<script>
+    window.onload = function () {
+        var formHandle = document.forms.teacherForm;
+        var firstName = document.getElementById("firstName");
+        var lastName = document.getElementById("lastName");
+        console.log("test");
+
+        teacherForm.onsubmit = function () {
+            var valid = true;
+            var fNameValue = formHandle.firstName.value;
+            var lNameValue = formHandle.lastName.value;
+
+            if (fNameValue === "") {
+                firstName.style.background = "red";
+                firstName.focus();
+                valid = false;
+            }
+
+            if (lNameValue === "") {
+                lastName.style.background = "red";
+                lastName.focus();
+                valid = false;
+            }
+          
+            return valid;
+        }
+    }
+
+
+</script>
