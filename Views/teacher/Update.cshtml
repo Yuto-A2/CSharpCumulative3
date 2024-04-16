@@ -1,0 +1,99 @@
+﻿
+@model ScoolProject.Models.teacher
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update teachers</h2>
+
+<form method="POST" action="/teacher/Edit/@Model.TeacherId" name="teacherForm">
+    <div>
+        <label>Id;</label>
+        <input type="text" name="teacherId" value="@Model.TeacherId" id="teacherid" />
+        <div id="idRequire"></div>
+    </div>
+
+    <div>
+        <label>First name;</label>
+        <input type="text" name="FirstName" value="@Model.TeacherfName" id="updatefName" />
+        <div id="fNameRequire"></div>
+    </div>
+    
+
+    <div>
+        <label>Last name;</label>
+        <input type="text" name="LastName" value="@Model.TeacherlName" id="updatelName" />
+        <div id="lNameRequire"></div>
+    </div>
+    
+
+    <div>
+        <label>Employee number;</label>
+        <input type="text" name="EmployeeNum" value="@Model.EmployeeNum" />
+    </div>
+
+    <div>
+        <label>Salary;</label>
+        <input type="text" name="Salary" value="@Model.Salary" id="teacherSalary" />
+        <div id="salaryRequire"></div>
+    </div>
+    
+
+    <div>
+        <input type="submit" value="Update Teacher" />
+    </div>
+</form>
+
+<script>
+    window.onload = function () {
+        var formHandle = document.forms.teacherForm;
+        var id = document.getElementById("teacherid");
+        var salaryTeacher = document.getElementById("teacherSalary");
+        var TeacherfName = document.getElementById("updatefName");
+        var TeacherlName = document.getElementById("updatelName");
+        var idRequire = document.getElementById("idRequire");
+        var fNameRequire = document.getElementById("fNameRequire");
+        var lNameRequire = document.getElementById("lNameRequire");
+        var salaryRequire = document.getElementById("salaryRequire");
+        console.log("test");
+
+        teacherForm.onsubmit = function () {
+            var valid = true;
+            var idValue = formHandle.teacherId.value;
+            var salaryValue = formHandle.Salary.value;
+            var fNameValue = formHandle.FirstName.value;
+            var lNameValue = formHandle.LastName.value;
+
+            if (idValue === "") {
+                id.style.background = "red";
+                id.focus();
+                idRequire.innerHTML = "Id is required.";
+                valid = false;
+            }
+
+            if (salaryValue === "") {
+                salaryTeacher.style.background = "red";
+                salaryTeacher.focus();
+                salaryRequire.innerHTML = "Salary is required.";
+                valid = false;
+            }
+
+            if (fNameValue === "") {
+                TeacherfName.style.background = "red";
+                TeacherfName.focus();
+                fNameRequire.innerHTML = "First Name is required.";
+                valid = false;
+            }
+
+            if (lNameValue === "") {
+                TeacherlName.style.background = "red";
+                TeacherlName.focus();
+                lNameRequire.innerHTML = "Last name is required.";
+                valid = false;
+            }
+
+            return valid;
+        }
+    }
+    </script>

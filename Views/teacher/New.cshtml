@@ -9,11 +9,24 @@
     <div>
         <label for="firstName">First Name</label>
         <input type="text" name="firstName" id="firstName">
+        <div id="addfNameRequire"></div>
     </div>
+
     <div>
         <label for="lastName">Last name</label>
         <input type="text" name="lastName" id="lastName" />
+        <div id="addlNameRequire"></div>
     </div>
+
+    <div>
+        <label for="employee">Employee number</label>
+        <input type="text" name="employee" id="employee" />
+    </div>
+    <div>
+        <label for="salary">Salary</label>
+        <input type="text" name="salary" id="salary" />
+    </div>
+
     <div>
         <label for="className">Class name</label>
         <input type="text" name="className" id="className" />
@@ -28,6 +41,8 @@
         var formHandle = document.forms.teacherForm;
         var firstName = document.getElementById("firstName");
         var lastName = document.getElementById("lastName");
+        var fNameRequire = document.getElementById("addfNameRequire");
+        var lNameRequire = document.getElementById("addlNameRequire");
         console.log("test");
 
         teacherForm.onsubmit = function () {
@@ -38,12 +53,14 @@
             if (fNameValue === "") {
                 firstName.style.background = "red";
                 firstName.focus();
+                fNameRequire.innerHTML = "First Name is required.";
                 valid = false;
             }
 
             if (lNameValue === "") {
                 lastName.style.background = "red";
                 lastName.focus();
+                lNameRequire.innerHTML = "First Name is required.";
                 valid = false;
             }
           
