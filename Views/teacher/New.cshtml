@@ -8,14 +8,12 @@
 <form method="POST" action="/Teacher/Create" name="teacherForm">
     <div>
         <label for="firstName">First Name</label>
-        <input type="text" name="firstName" id="firstName">
-        <div id="addfNameRequire"></div>
+        <input type="text" name="firstName" id="firstName"><span id="addfNameRequire"></span>
     </div>
 
     <div>
         <label for="lastName">Last name</label>
-        <input type="text" name="lastName" id="lastName" />
-        <div id="addlNameRequire"></div>
+        <input type="text" name="lastName" id="lastName" /><span id="addlNameRequire"></span>
     </div>
 
     <div>
@@ -60,7 +58,7 @@
             if (lNameValue === "") {
                 lastName.style.background = "red";
                 lastName.focus();
-                lNameRequire.innerHTML = "First Name is required.";
+                lNameRequire.innerHTML = "Last Name is required.";
                 valid = false;
             }
           

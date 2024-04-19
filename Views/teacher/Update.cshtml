@@ -10,21 +10,18 @@
 <form method="POST" action="/teacher/Edit/@Model.TeacherId" name="teacherForm">
     <div>
         <label>Id;</label>
-        <input type="text" name="teacherId" value="@Model.TeacherId" id="teacherid" />
-        <div id="idRequire"></div>
+        <input type="text" name="teacherId" value="@Model.TeacherId" id="teacherid" /><span id="idRequire"></span>
     </div>
 
     <div>
         <label>First name;</label>
-        <input type="text" name="FirstName" value="@Model.TeacherfName" id="updatefName" />
-        <div id="fNameRequire"></div>
+        <input type="text" name="FirstName" value="@Model.TeacherfName" id="updatefName" /><span id="fNameRequire"></span>
     </div>
     
 
     <div>
         <label>Last name;</label>
-        <input type="text" name="LastName" value="@Model.TeacherlName" id="updatelName" />
-        <div id="lNameRequire"></div>
+        <input type="text" name="LastName" value="@Model.TeacherlName" id="updatelName" /><span id="lNameRequire"></span>
     </div>
     
 
@@ -35,8 +32,7 @@
 
     <div>
         <label>Salary;</label>
-        <input type="text" name="Salary" value="@Model.Salary" id="teacherSalary" />
-        <div id="salaryRequire"></div>
+        <input type="text" name="Salary" value="@Model.Salary" id="teacherSalary" /><span id="salaryRequire"></span>
     </div>
     
 

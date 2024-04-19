@@ -165,7 +165,7 @@ namespace SchoolProject.Controllers
 
             Conn.Close();
         }
-        ///practice
+        
         //Update Teacher
         /// <summary>
         /// Receive some teachers data and a teacher ID and update the teachers in the database corresponding to that ID
