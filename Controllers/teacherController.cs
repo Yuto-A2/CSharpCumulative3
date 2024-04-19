@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
+using Mysqlx.Datatypes;
 using ScoolProject.Models;
 
 namespace SchoolProject.Controllers
@@ -40,7 +41,7 @@ public class TeacherController : Controller
         }
         //Post: localhost:xx/teacher/create -> List.cshtml
         [HttpPost]
-        public ActionResult Create(string lastName, string firstName)
+        public ActionResult Create(string lastName, string firstName, string employee, double salary)
         {
             Debug.WriteLine("We recieved information");
             Debug.WriteLine(lastName);
@@ -51,6 +52,8 @@ public class TeacherController : Controller
             teacher NewTeacher = new teacher();
             NewTeacher.TeacherfName = firstName;
             NewTeacher.TeacherlName = lastName;
+            NewTeacher.EmployeeNum = employee; 
+            NewTeacher.Salary = salary;
 
 
             teacherController.AddTeacher(NewTeacher);
@@ -73,5 +76,27 @@ public class TeacherController : Controller
             teacherController.DeleteTeacher(id);
             return RedirectToAction("List");
         }
-}
+        public ActionResult Update(int id)
+        {
+            TeacherDataController controller = new TeacherDataController();
+            teacher SelectedTeacher = controller.FindTeacher(id);
+            return View(SelectedTeacher);
+            //GET /teacher/Update/{id} -> A webpage asking the user to update a teacher
+            //POST /teacher/Edit/{id} -> Receiving the teacher information to update
+        }
+        public ActionResult Edit(int id, string lastName, string firstName, string EmployeeNum, double salary)
+        {
+            TeacherDataController Controller = new TeacherDataController();
+            teacher updatedTeacher = new teacher();
+            updatedTeacher.TeacherId = id;
+            updatedTeacher.TeacherfName = firstName;
+            updatedTeacher.TeacherlName = lastName;
+            updatedTeacher.EmployeeNum = EmployeeNum;
+            updatedTeacher.Salary = salary;
+
+            Controller.UpdateTeacher(id, updatedTeacher);
+            return RedirectToAction("Show/" + id);
+        
+        }
+    }
 }
